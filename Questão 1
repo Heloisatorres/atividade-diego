@@ -1,0 +1,11 @@
+import requests, json
+result = requests.get("https://api.hgbrasil.com/finance?key=39650b8c")
+objeto = json.loads(result.text)
+dolar = objeto['results']['currencies']['USD']['buy']
+
+euro = objeto['results']['currencies']['EUR']['buy']
+
+real=float(input('Insira o valor em reais:'))
+
+print('O valor em dolar é:',real*dolar)
+print('O valor em euro é:',real*euro)
