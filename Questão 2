@@ -1,0 +1,5 @@
+import requests, json
+cep = int(input('Insira o cep :'))
+result = requests.get('https://viacep.com.br/ws/'+str(cep)+'/json/')
+objeto = json.loads(result.text)
+print(f"endereco:{objeto['logradouro']} - bairro:{objeto['bairro']}, cidade:{objeto['localidade']} - uf:{objeto['uf']}, cep:{objeto['cep']}")
